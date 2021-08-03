@@ -13,11 +13,13 @@ namespace EmployeeWageComputation
             /// int IS_FULL_TIME = 2;
             int WAGE_PER_HR = 1000;
             int MAX_WORK_DAYS = 20;
+            int MAX_WORK_HRS = 100;
             int totalWorkHr = 0;
+            int day = 1;
             int hoursWorked;
             int wage = 0;
 
-            for (int day = 1; day <= MAX_WORK_DAYS; day++)
+            while (day < MAX_WORK_DAYS && totalWorkHr < MAX_WORK_HRS)
             {
 
                 Random rand = new Random();
@@ -42,8 +44,11 @@ namespace EmployeeWageComputation
 
                 /// Calculate total wage
                 wage = (WAGE_PER_HR * hoursWorked) + wage;
+
+                day++;
             }
             Console.WriteLine("Total Working Hours is " + totalWorkHr);
+            Console.WriteLine("No of Working days is " + day);
             Console.WriteLine("Total Wage is " + wage);
         }
     }
