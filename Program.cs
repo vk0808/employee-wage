@@ -19,7 +19,7 @@ namespace EmployeeWageComputation
             int hoursWorked;
             int wage = 0;
 
-            while (day < MAX_WORK_DAYS && totalWorkHr < MAX_WORK_HRS)
+            while (day < MAX_WORK_DAYS || totalWorkHr < MAX_WORK_HRS)
             {
 
                 Random rand = new Random();

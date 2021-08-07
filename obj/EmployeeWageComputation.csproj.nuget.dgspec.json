@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\vk476\\Desktop\\Fellowship Program\\Practice Problems\\EmployeeWageComputation\\EmployeeWageComputation\\EmployeeWageComputation.csproj": {}
+    "C:\\Users\\vk476\\Desktop\\Fellowship Program\\Practice Problems\\Day8Problems\\EmployeeWageComputation\\EmployeeWageComputation\\EmployeeWageComputation.csproj": {}
   },
   "projects": {
-    "C:\\Users\\vk476\\Desktop\\Fellowship Program\\Practice Problems\\EmployeeWageComputation\\EmployeeWageComputation\\EmployeeWageComputation.csproj": {
+    "C:\\Users\\vk476\\Desktop\\Fellowship Program\\Practice Problems\\Day8Problems\\EmployeeWageComputation\\EmployeeWageComputation\\EmployeeWageComputation.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\vk476\\Desktop\\Fellowship Program\\Practice Problems\\EmployeeWageComputation\\EmployeeWageComputation\\EmployeeWageComputation.csproj",
+        "projectUniqueName": "C:\\Users\\vk476\\Desktop\\Fellowship Program\\Practice Problems\\Day8Problems\\EmployeeWageComputation\\EmployeeWageComputation\\EmployeeWageComputation.csproj",
         "projectName": "EmployeeWageComputation",
-        "projectPath": "C:\\Users\\vk476\\Desktop\\Fellowship Program\\Practice Problems\\EmployeeWageComputation\\EmployeeWageComputation\\EmployeeWageComputation.csproj",
+        "projectPath": "C:\\Users\\vk476\\Desktop\\Fellowship Program\\Practice Problems\\Day8Problems\\EmployeeWageComputation\\EmployeeWageComputation\\EmployeeWageComputation.csproj",
         "packagesPath": "C:\\Users\\vk476\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\vk476\\Desktop\\Fellowship Program\\Practice Problems\\EmployeeWageComputation\\EmployeeWageComputation\\obj\\",
+        "outputPath": "C:\\Users\\vk476\\Desktop\\Fellowship Program\\Practice Problems\\Day8Problems\\EmployeeWageComputation\\EmployeeWageComputation\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\vk476\\AppData\\Roaming\\NuGet\\NuGet.Config",
