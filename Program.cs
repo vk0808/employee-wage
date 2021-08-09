@@ -6,16 +6,18 @@ namespace EmployeeWageComputation
     {
         static void Main(string[] args)
         {
-            Employee employee = new Employee(1000, 100, 20);
+            /// Create new instance of Employee class
+            Employee employee = new Employee("CLeanEarth", 1000, 100, 20);
 
 
-            Console.WriteLine(employee.Greet() + "\n");
+            /// Displaying welcome message
+            Console.WriteLine(employee.welcome() + "\n");
 
+            /// Calculate employee wage
             employee.CalculateWage();
 
-            Console.WriteLine("Total Working Hours: " + employee.GetHrs());
-            Console.WriteLine("No of Working days: " + employee.GetDays());
-            Console.WriteLine("Total Wage: " + employee.GetWage());
+            /// Displaying results of the calculation
+            employee.displayMsg();
         }
     }
 }
