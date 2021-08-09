@@ -7,34 +7,40 @@ namespace EmployeeWageComputation
 
     public class Employee
     {
-        int WAGE_PER_HR;
-        int MAX_WORK_HRS;
-        int MAX_WORK_DAYS;
+        private int wagePerHr;
+        private int maxWorkHrs;
+        private int maxWorkDays;
+        private string company = null;
 
-        int FULL_TIME_HR = 8;
-        int HALF_TIME_HR = 4;
-        int ABSENT = 0;
+        const int FULL_TIME = 2; 
+        const int HALF_TIME = 1;
+        private int FULL_TIME_HR = 8; //full time hour
+        private int HALF_TIME_HR = 4; // part-time hour
+        private int ABSENT = 0; // absent hour
 
-        int totalWorkHr = 0;
-        int day = 1;
-        int wage = 0;
+        private int totalWorkHr = 0;
+        private int day = 1;
+        private int wage = 0;
 
 
-        public Employee(int wagePerHr, int maxWorkHrs, int maxWorkDays)
+        public Employee(string company, int wagePerHr, int maxWorkHrs, int maxWorkDays)
         {
-            this.WAGE_PER_HR = wagePerHr;
-            this.MAX_WORK_HRS = maxWorkHrs;
-            this.MAX_WORK_DAYS = maxWorkDays;
+            this.wagePerHr = wagePerHr;
+            this.maxWorkHrs = maxWorkHrs;
+            this.maxWorkDays = maxWorkDays;
+            this.company = company;
         }
 
-        public string Greet()
+        /// Method to display welcome message
+        public string welcome()
         {
             return "Welcome to Employee Wage Computation";
         }
 
+        /// Method to calculate wage
         public void CalculateWage()
         {
-            while (day < this.MAX_WORK_DAYS && totalWorkHr < this.MAX_WORK_HRS)
+            while (day < this.maxWorkDays && totalWorkHr < this.maxWorkHrs)
             {
                 Random rand = new Random();
                 
@@ -44,8 +50,8 @@ namespace EmployeeWageComputation
                 /// Determine hours worked based on half/full/absent using switch and store it in hoursWorked
                 var hoursWorked = empCheck switch
                 {
-                    1 => HALF_TIME_HR,
-                    2 => FULL_TIME_HR,
+                    HALF_TIME => HALF_TIME_HR,
+                    FULL_TIME => FULL_TIME_HR,
                     _ => ABSENT,
                 };
 
@@ -53,26 +59,44 @@ namespace EmployeeWageComputation
                 totalWorkHr += hoursWorked;
 
                 /// Calculate total wage
-                wage = (this.WAGE_PER_HR * hoursWorked) + wage;
+                wage = (this.wagePerHr * hoursWorked) + wage;
 
                 /// Increment day
                 day++;
             }
         }
 
+        /// Method to get days
         public int GetDays()
         {
             return day;
         }
 
+        /// Method to get hours
         public int GetHrs()
         {
             return totalWorkHr;
         }
 
+        /// Method to get wage
         public int GetWage()
         {
             return wage;
+        }
+
+        /// Method to get company name
+        public string GetCompany()
+        {
+            return company;
+        }
+
+        /// Method to display message
+        public void displayMsg()
+        {
+            Console.WriteLine($"Company: {GetCompany()}");
+            Console.WriteLine($"Total Working Hours: {GetHrs()}");
+            Console.WriteLine($"No of Working days: {GetDays()}");
+            Console.WriteLine($"Total Wage: {GetWage()}");
         }
     }
 }
