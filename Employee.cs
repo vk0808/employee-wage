@@ -5,42 +5,47 @@ using System.Text;
 namespace EmployeeWageComputation
 {
 
-    public class EmpWageBuilder
+    public class EmpWageBuilderArray
     {
-        private int wagePerHr;
-        private int maxWorkHrs;
-        private int maxWorkDays;
-        private string company = null;
-
+      
         const int FULL_TIME = 2; 
         const int HALF_TIME = 1;
         private int FULL_TIME_HR = 8; //full time hour
         private int HALF_TIME_HR = 4; // part-time hour
         private int ABSENT = 0; // absent hour
 
-        private int totalWorkHr = 0;
-        private int day = 1;
-        private int wage = 0;
 
+        private int noOfCompanies = 0;
+        private CompanyEmpWage[] companyEmpWageArray;
 
-        public EmpWageBuilder(string company, int wagePerHr, int maxWorkHrs, int maxWorkDays)
+       public EmpWageBuilderArray()
         {
-            this.wagePerHr = wagePerHr;
-            this.maxWorkHrs = maxWorkHrs;
-            this.maxWorkDays = maxWorkDays;
-            this.company = company;
+            this.companyEmpWageArray = new CompanyEmpWage[5];
         }
 
-        /// Method to display welcome message
-        public void welcome()
+
+        public void addCompanyWage(string company, int wagePerHr, int maxWorkDays, int maxWorkHrs)
         {
-            Console.WriteLine("Welcome to Employee Wage Computation\n");
+            companyEmpWageArray[this.noOfCompanies] = new CompanyEmpWage(company, wagePerHr, maxWorkDays, maxWorkHrs);
+            noOfCompanies++;
         }
+
+        public void computeCompanyWage()
+        {
+            for (int i = 0; i < noOfCompanies; i++)
+            {
+                companyEmpWageArray[i].setEmpWage(this.CalculateWage(this.companyEmpWageArray[i]));
+                this.companyEmpWageArray[i].displayMsg();
+            }
+        }
+
 
         /// Method to calculate wage
-        public void CalculateWage()
+        private int CalculateWage(CompanyEmpWage companyEmpWage)
         {
-            while (day < this.maxWorkDays && totalWorkHr < this.maxWorkHrs)
+            int totalWorkHr = 0, day = 1;
+
+            while (day < companyEmpWage.maxWorkDays && totalWorkHr <= companyEmpWage.maxWorkHrs)
             {
                 Random rand = new Random();
                 
@@ -58,42 +63,21 @@ namespace EmployeeWageComputation
                 /// Calculate total working hour
                 totalWorkHr += hoursWorked;
 
-                /// Calculate total wage
-                wage = (this.wagePerHr * hoursWorked) + wage;
+                Console.WriteLine($"Day#: {day}\nHrs: {hoursWorked}");
 
                 /// Increment day
                 day++;
             }
+            
+            /// Return total wage
+            return totalWorkHr * companyEmpWage.wagePerHr;
         }
 
-        /// Method to get days
-        public int GetDays()
-        {
-            return day;
-        }
 
-        /// Method to get hours
-        public int GetHrs()
+        /// Method to display welcome message
+        public void welcome()
         {
-            return totalWorkHr;
-        }
-
-        /// Method to get wage
-        public int GetWage()
-        {
-            return wage;
-        }
-
-        /// Method to get company name
-        public string GetCompany()
-        {
-            return company;
-        }
-
-        /// Method to display message
-        public void displayMsg()
-        {
-            Console.WriteLine($"Company: {GetCompany()}\nTotal Working Hours: {GetHrs()}\nNo of Working days: {GetDays()}\nTotal Wage: {GetWage()}\n");
+            Console.WriteLine("Welcome to Employee Wage Computation\n");
         }
     }
 }
