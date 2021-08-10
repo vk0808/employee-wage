@@ -7,17 +7,23 @@ namespace EmployeeWageComputation
         static void Main(string[] args)
         {
             /// Create new instance of Employee class
-            Employee employee = new Employee("CLeanEarth", 1000, 100, 20);
+            EmpWageBuilder cleanEarth = new EmpWageBuilder("CLeanEarth", 1000, 100, 20);
+            EmpWageBuilder dMart = new EmpWageBuilder("DMart", 800, 90, 24);
 
 
             /// Displaying welcome message
-            Console.WriteLine(employee.welcome() + "\n");
-
+            cleanEarth.welcome();
             /// Calculate employee wage
-            employee.CalculateWage();
-
+            cleanEarth.CalculateWage();
             /// Displaying results of the calculation
-            employee.displayMsg();
+            cleanEarth.displayMsg();
+
+
+            
+            /// Calculate employee wage
+            dMart.CalculateWage();
+            /// Displaying results of the calculation
+            dMart.displayMsg();
         }
     }
 }

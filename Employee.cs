@@ -5,7 +5,7 @@ using System.Text;
 namespace EmployeeWageComputation
 {
 
-    public class Employee
+    public class EmpWageBuilder
     {
         private int wagePerHr;
         private int maxWorkHrs;
@@ -23,7 +23,7 @@ namespace EmployeeWageComputation
         private int wage = 0;
 
 
-        public Employee(string company, int wagePerHr, int maxWorkHrs, int maxWorkDays)
+        public EmpWageBuilder(string company, int wagePerHr, int maxWorkHrs, int maxWorkDays)
         {
             this.wagePerHr = wagePerHr;
             this.maxWorkHrs = maxWorkHrs;
@@ -32,9 +32,9 @@ namespace EmployeeWageComputation
         }
 
         /// Method to display welcome message
-        public string welcome()
+        public void welcome()
         {
-            return "Welcome to Employee Wage Computation";
+            Console.WriteLine("Welcome to Employee Wage Computation\n");
         }
 
         /// Method to calculate wage
@@ -93,10 +93,7 @@ namespace EmployeeWageComputation
         /// Method to display message
         public void displayMsg()
         {
-            Console.WriteLine($"Company: {GetCompany()}");
-            Console.WriteLine($"Total Working Hours: {GetHrs()}");
-            Console.WriteLine($"No of Working days: {GetDays()}");
-            Console.WriteLine($"Total Wage: {GetWage()}");
+            Console.WriteLine($"Company: {GetCompany()}\nTotal Working Hours: {GetHrs()}\nNo of Working days: {GetDays()}\nTotal Wage: {GetWage()}\n");
         }
     }
 }
