@@ -26,9 +26,9 @@ namespace EmployeeWageComputation
         }
 
         /// Method to display message
-        public void displayMsg()
+        public string displayMsg()
         {
-            Console.WriteLine($"Company: {this.company}\nTotal Wage: {this.totalWage}\n");
+            return $"Company: {this.company}\nTotal Wage: {this.totalWage}\n";
         }
     }
 }

@@ -14,29 +14,32 @@ namespace EmployeeWageComputation
         private int ABSENT = 0; // absent hour
 
         private LinkedList<CompanyEmpWage> companyEmpWageList;
+        private Dictionary<string, CompanyEmpWage> companyToEmpWageMap;
 
         public EmpWageBuilder()
         {
             this.companyEmpWageList = new LinkedList<CompanyEmpWage>();
+            this.companyToEmpWageMap = new Dictionary<string, CompanyEmpWage>();
         }
 
         public void addCompanyWage(string company, int wagePerHr, int maxWorkDays, int maxWorkHrs)
         {
             CompanyEmpWage companyEmpWage = new CompanyEmpWage(company, wagePerHr, maxWorkDays, maxWorkHrs);
             this.companyEmpWageList.AddLast(companyEmpWage);
+            this.companyToEmpWageMap.Add(company, companyEmpWage);
         }
 
         public void computeCompanyWage()
         {
-            foreach (CompanyEmpWage companyEmpWage in this.companyEmpWageList)
+            foreach (var companyEmpWage in this.companyEmpWageList)
             {
-                companyEmpWage.setEmpWage(this.CalculateWage(companyEmpWage));
+                companyEmpWage.setEmpWage(this.computeCompanyWage(companyEmpWage));
                 Console.WriteLine(companyEmpWage.displayMsg());
             }
         }
 
         /// Method to calculate wage
-        private int CalculateWage(CompanyEmpWage companyEmpWage)
+        private int computeCompanyWage(CompanyEmpWage companyEmpWage)
         {
             int totalWorkHr = 0, day = 1;
 
@@ -58,7 +61,7 @@ namespace EmployeeWageComputation
                 /// Calculate total working hour
                 totalWorkHr += hoursWorked;
 
-                Console.WriteLine($"Day#: {day}\nHrs: {hoursWorked}");
+                //Console.WriteLine($"Day#: {day}\nHrs: {hoursWorked}");
 
                 /// Increment day
                 day++;
