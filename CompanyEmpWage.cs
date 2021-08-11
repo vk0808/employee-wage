@@ -4,12 +4,6 @@ using System.Text;
 
 namespace EmployeeWageComputation
 {
-    public interface IComputeCompanyWage
-    {
-        public void addCompanyWage(string company, int wagePerHr, int maxWorkDays, int maxWorkHrs);
-        public void computeCompanyWage();
-        public void welcome();
-    }
     public class CompanyEmpWage
     {
         public string company = null;
@@ -34,7 +28,7 @@ namespace EmployeeWageComputation
         /// Method to display message
         public void displayMsg()
         {
-            Console.WriteLine($"Company: {this.company}\n\nTotal Wage: {this.totalWage}\n");
+            Console.WriteLine($"Company: {this.company}\nTotal Wage: {this.totalWage}\n");
         }
     }
 }
