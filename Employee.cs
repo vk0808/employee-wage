@@ -13,6 +13,8 @@ namespace EmployeeWageComputation
         private int HALF_TIME_HR = 4; // part-time hour
         private int ABSENT = 0; // absent hour
 
+        private List<string> companies = new List<string>();
+
         private LinkedList<CompanyEmpWage> companyEmpWageList;
         private Dictionary<string, CompanyEmpWage> companyToEmpWageMap;
 
@@ -27,6 +29,7 @@ namespace EmployeeWageComputation
             CompanyEmpWage companyEmpWage = new CompanyEmpWage(company, wagePerHr, maxWorkDays, maxWorkHrs);
             this.companyEmpWageList.AddLast(companyEmpWage);
             this.companyToEmpWageMap.Add(company, companyEmpWage);
+            companies.Add(company);
         }
 
         public void computeCompanyWage()
@@ -76,6 +79,44 @@ namespace EmployeeWageComputation
         public void welcome()
         {
             Console.WriteLine("Welcome to Employee Wage Computation\n");
+        }
+
+        public string getCompany()
+        {
+            Console.WriteLine("Enter the company you want to check");
+            string query = Console.ReadLine();
+            return query;
+        }
+
+        public bool checkCompany(string qeury)
+        {
+            foreach (var item in companies)
+            {
+                if (qeury == item)
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
+
+        public void companyQuery()
+        {
+            string query = getCompany();
+
+            if (checkCompany(query))
+            {
+                Console.WriteLine($"Total wage for the {query} company: {getTotalWage(query)}");
+            }
+            else
+            {
+                Console.WriteLine($"There is no company {query}");
+            }
+        }
+
+        public int getTotalWage(string company)
+        {
+            return this.companyToEmpWageMap[company].totalWage;
         }
     }
 }

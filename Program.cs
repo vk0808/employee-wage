@@ -17,6 +17,9 @@ namespace EmployeeWageComputation
             empWageBuilder.addCompanyWage("DMart", 800, 90, 24);
 
             empWageBuilder.computeCompanyWage();
+
+            empWageBuilder.companyQuery();
+
         }
     }
 }
